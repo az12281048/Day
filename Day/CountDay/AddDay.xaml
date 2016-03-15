@@ -1,0 +1,55 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="Day.AddDay"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot 是包含所有页面内容的根网格-->
+    <Grid x:Name="LayoutRoot">
+        <Grid.Background>
+            <ImageBrush ImageSource="/Image/background6.jpg"/>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel 包含应用程序的名称和页标题-->
+        <StackPanel Margin="24,12,0,0">
+            <TextBlock Text="小X纪念日" Foreground="Black" FontSize="23"/>
+        </StackPanel>
+
+        <!--ContentPanel - 在此处放置其他内容-->
+
+        <StackPanel  Orientation="Vertical" VerticalAlignment="Top" Margin="24,60" Height="600">
+            <TextBlock Text="输入名称" FontSize="30" HorizontalAlignment="Left" Height="42"/>
+            <TextBox Name="inputName" HorizontalAlignment="Left" Height="72" Width="426" Background="Azure"/>
+            <TextBlock Text="选择日期" FontSize="30" HorizontalAlignment="Left" Height="42"/>
+            <toolkit:DatePicker Name="inputDate" HorizontalAlignment="Left" Width="426" Foreground="Black" Background="Azure"/>
+            <TextBlock Text="提醒周期" FontSize="30" HorizontalAlignment="Left" Height="36"/>
+            <toolkit:ListPicker Name="inputCircle" UseLayoutRounding="True" HorizontalAlignment="Left"  Width="400" 
+                                Background="Azure" Foreground="Black"/>
+            <toolkit:ToggleSwitch Name="inputMode_1" HorizontalAlignment="Left" Content="显示到小X倒数" Width="426"/>
+            <toolkit:ToggleSwitch Name="inputMode_2" HorizontalAlignment="Left" Content="显示到小X纪念" Width="426"/>
+        </StackPanel>
+    </Grid>
+    
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar StateChanged="ApplicationBar_StateChanged" Mode="Default">
+            <shell:ApplicationBarIconButton IconUri="/Assets/AppBar/check.png" Text="确定" 
+                                            Click="ApplicationBarIconButton_Click_yes"/>
+            <shell:ApplicationBarIconButton IconUri="/Assets/AppBar1/cancel.png" Text="取消" 
+                                            Click="ApplicationBarIconButton_Click_cancel"/>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+
+</phone:PhoneApplicationPage>
